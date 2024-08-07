@@ -6,4 +6,5 @@ root: intro
 parts:
     - caption: NumPy
       chapters:
-      - file: chapters/numpy/numpy_intro.md
+      - file: chapters/numpy/numpy_intro.ipynb
+      - file: chapters/numpy/basics_of_numpy_arrays.ipynb
