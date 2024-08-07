@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>NumPy Basics &#8212; Machine Learning</title>
+    <title>Introduction to NumPy &#8212; Machine Learning</title>
   
   
   
@@ -36,7 +36,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ff6e0ac6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/.ipynb_checkpoints/custom-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -62,6 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/numpy/numpy_intro';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basics of NumPy Arrays" href="basics_of_numpy_arrays.html" />
     <link rel="prev" title="Welcome Page" href="../../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,7 +182,8 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">NumPy</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">NumPy Basics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics_of_numpy_arrays.html">Basics of NumPy Arrays</a></li>
 </ul>
 
     </div>
@@ -368,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>NumPy Basics</h1>
+    <h1>Introduction to NumPy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -378,8 +379,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-installation-via-pip">NumPy installation via PIP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-numpy-arrays">Creating NumPy arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-numpy">What is NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-numpy">Installing NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-numpy-arrays">Basics of NumPy Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays-from-python-objects">Creating Arrays from Python Objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays-from-scratch">Creating Arrays from Scratch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-standard-data-types">NumPy Standard Data Types</a></li>
 </ul>
             </nav>
         </div>
@@ -391,18 +398,279 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="numpy-basics">
-<h1>NumPy Basics<a class="headerlink" href="#numpy-basics" title="Link to this heading">#</a></h1>
-<section id="numpy-installation-via-pip">
-<h2>NumPy installation via PIP<a class="headerlink" href="#numpy-installation-via-pip" title="Link to this heading">#</a></h2>
-<p>To install <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package use the following command:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-numpy">
+<h1>Introduction to NumPy<a class="headerlink" href="#introduction-to-numpy" title="Link to this heading">#</a></h1>
+<section id="what-is-numpy">
+<h2>What is NumPy<a class="headerlink" href="#what-is-numpy" title="Link to this heading">#</a></h2>
+<p>NumPy (Numerical Python) is an open-source Python library that supports large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays.</p>
+<p><strong>Definition:</strong>
+NumPy is a key package for scientific computing in Python, providing efficient array operations and numerous mathematical functions.</p>
+<p>Purpose:</p>
+<ol class="arabic simple">
+<li><p>Efficient Computation: NumPy arrays are faster and more memory-efficient than Python lists.</p></li>
+<li><p>Mathematical Functions: It offers a variety of functions for statistical analysis, algebra, and more.</p></li>
+<li><p>Data Handling: Simplifies the manipulation and computation of large datasets.</p></li>
+<li><p>Integration: Works seamlessly with other scientific libraries like Pandas, SciPy, and Matplotlib.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Importance in Data Science and Machine Learning</p>
+<p>Data Science:</p>
+<ol class="arabic simple">
+<li><p>Data Manipulation: Makes reshaping, slicing, and indexing large datasets easier.</p></li>
+<li><p>Performance: Optimized for speed, crucial for big data operations.</p></li>
+<li><p>Statistical Analysis: Facilitates quick and accurate statistical computations.</p></li>
+</ol>
+<p>Machine Learning:</p>
+<ol class="arabic simple">
+<li><p>Foundation for Libraries: Underpins many ML libraries like TensorFlow and scikit-learn.</p></li>
+<li><p>Matrix Operations: Efficiently handles matrix multiplication and other linear algebra tasks.</p></li>
+<li><p>Data Preparation: Aids in data normalization and preprocessing.</p></li>
+<li><p>Prototyping: Supports rapid prototyping of ML algorithms due to its simplicity and performance.</p></li>
+</ol>
+</div>
+</section>
+<section id="installing-numpy">
+<h2>Installing NumPy<a class="headerlink" href="#installing-numpy" title="Link to this heading">#</a></h2>
+<p>To use NumPy in your Python projects, you need to install it first. Here’s how you can do it by using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy
 </pre></div>
 </div>
+<p>Once NumPy is installed, you can start using it in your Python scripts by importing it.
+It’s a common practice to import NumPy with the alias <code class="docutils literal notranslate"><span class="pre">np</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>This alias <code class="docutils literal notranslate"><span class="pre">np</span></code> makes it easier and quicker to access NumPy functions and features throughout your code.</p>
 </section>
-<section id="creating-numpy-arrays">
-<h2>Creating NumPy arrays<a class="headerlink" href="#creating-numpy-arrays" title="Link to this heading">#</a></h2>
+<section id="basics-of-numpy-arrays">
+<h2>Basics of NumPy Arrays<a class="headerlink" href="#basics-of-numpy-arrays" title="Link to this heading">#</a></h2>
+<section id="creating-arrays-from-python-objects">
+<h3>Creating Arrays from Python Objects<a class="headerlink" href="#creating-arrays-from-python-objects" title="Link to this heading">#</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">np.array()</span></code>:
+You can create a NumPy array using the <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> function. This function can convert Python lists and tuples into NumPy arrays.</p>
+<p>Creating an array from a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_from_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creating an array from a tuple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_from_tuple</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_from_tuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 5]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">NumPy arrays vs Python Lists</p>
+<p>NumPy arrays enforce <strong>homogeneity</strong>, requiring all elements to be of the same data type, which enhances efficiency.
+They also support <strong>advanced functionalities</strong> like broadcasting and multi-dimensional slicing.
+In contrast, Python lists are more flexible with data types but lack the performance optimization of NumPy arrays.
+Lists also do not support element-wise operations or advanced indexing and slicing natively.</p>
+</div>
 </section>
+<section id="creating-arrays-from-scratch">
+<h3>Creating Arrays from Scratch<a class="headerlink" href="#creating-arrays-from-scratch" title="Link to this heading">#</a></h3>
+<p>NumPy provides several functions to create arrays from scratch with specific values and shapes. Here are some commonly used functions:</p>
+<ol class="arabic">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.zeros</span></code></strong>:</p>
+<ul>
+<li><p>Creates an array filled with zeros.</p></li>
+<li><p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates a 3x4 array of zeros</span>
+<span class="n">zeros_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">zeros_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.ones</span></code></strong>:</p>
+<ul>
+<li><p>Creates an array filled with ones.</p></li>
+<li><p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates a 2x5 array of ones</span>
+<span class="n">ones_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">ones_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.arange</span></code></strong>:</p>
+<ul>
+<li><p>Creates an array with a range of values, similar to Python’s <code class="docutils literal notranslate"><span class="pre">range</span></code> but returns an array.</p></li>
+<li><p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates an array with values from 0 to 9</span>
+<span class="n">arange_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">arange_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can also specify the start, stop, and step values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates an array with values from 1 to 9, with a step of 2</span>
+<span class="n">arange_array_step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">arange_array_step</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.linspace</span></code></strong>:</p>
+<ul>
+<li><p>Creates an array of evenly spaced values between a specified start and stop value.</p></li>
+<li><p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates an array with 5 evenly spaced values between 0 and 1</span>
+<span class="n">linspace_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">linspace_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p>These functions allow you to quickly generate arrays with specific values and structures, making it easy to initialize data for various computations and analyses.</p>
+</section>
+</section>
+<section id="numpy-standard-data-types">
+<h2>NumPy Standard Data Types<a class="headerlink" href="#numpy-standard-data-types" title="Link to this heading">#</a></h2>
+<p>NumPy supports a wide range of data types that are crucial for handling various kinds of numerical and non-numerical data efficiently. Here are some of the standard data types in NumPy:</p>
+<ol class="arabic simple">
+<li><p><strong>Integer Types</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.int8</span></code></strong>: 8-bit integer (-128 to 127)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.int16</span></code></strong>: 16-bit integer (-32,768 to 32,767)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.int32</span></code></strong>: 32-bit integer (-2,147,483,648 to 2,147,483,647)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.int64</span></code></strong>: 64-bit integer (-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807)</p></li>
+</ul>
+</li>
+<li><p><strong>Unsigned Integer Types</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.uint8</span></code></strong>: 8-bit unsigned integer (0 to 255)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.uint16</span></code></strong>: 16-bit unsigned integer (0 to 65,535)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.uint32</span></code></strong>: 32-bit unsigned integer (0 to 4,294,967,295)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.uint64</span></code></strong>: 64-bit unsigned integer (0 to 18,446,744,073,709,551,615)</p></li>
+</ul>
+</li>
+<li><p><strong>Floating-Point Types</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.float16</span></code></strong>: 16-bit floating-point number</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.float32</span></code></strong>: 32-bit floating-point number</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></strong>: 64-bit floating-point number (double precision)</p></li>
+</ul>
+</li>
+<li><p><strong>Complex Number Types</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.complex64</span></code></strong>: Complex number represented by two 32-bit floats (real and imaginary parts)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.complex128</span></code></strong>: Complex number represented by two 64-bit floats (real and imaginary parts)</p></li>
+</ul>
+</li>
+<li><p><strong>Boolean Type</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.bool_</span></code></strong>: Boolean (True or False)</p></li>
+</ul>
+</li>
+<li><p><strong>String Types</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.str_</span></code></strong>: Fixed-length Unicode string</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.bytes_</span></code></strong>: Fixed-length byte string</p></li>
+</ul>
+</li>
+<li><p><strong>Other Types</strong>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.object_</span></code></strong>: Object type (any Python object)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.void</span></code></strong>: Void type (for custom or raw data)</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Examples:</strong></p>
+<p>Creating arrays with specific data types:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integer array</span>
+<span class="n">int_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">int_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="c1"># Float array</span>
+<span class="n">float_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="c1"># Complex array</span>
+<span class="n">complex_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">complex_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="c1"># Boolean array</span>
+<span class="n">bool_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int32
+float64
+complex128
+bool
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Understanding these data types helps in selecting the appropriate type for efficient computation and memory usage.</p>
+<!-- In this chapter, we will delve into the world of NumPy arrays and learn how to harness their power for efficient data manipulation and numerical computations. 
+NumPy, short for Numerical Python, is a fundamental library in the Python ecosystem, providing convenient and high-performance functionality for a wide range of mathematical operations.
+
+We will explore how to create, manipulate, and perform complex operations on NumPy arrays, enabling us to handle large datasets with ease and precision. 
+From basic array creation and reshaping to advanced indexing, slicing, and broadcasting, this chapter will equip you with the essential skills to leverage NumPy for your data science and machine learning projects.
+
+```{note}
+NumPy arrays have a fixed type, meaning all elements are of the same data type. 
+This consistency allows for optimized memory usage and faster computation compared to Python lists. 
+The fixed type also enables efficient vectorized operations on the entire array at once.
+```
+
+## NumPy installation via PIP
+
+To install the `numpy` package, use the following command:
+```bash
+pip install numpy
+```
+
+## Creating NumPy arrays
+
+Just want to check how it works now
+
+Let's try to create our first numpy array.
+Here is the code snippet:
+
+Just a test -->
+<!-- ```{code-cell} ipython3
+import numpy as np
+
+v = np.array([1, -1, 1, -1])
+print(v)
+``` --></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -444,6 +712,15 @@ document.write(`
         <p class="prev-next-title">Welcome Page</p>
       </div>
     </a>
+    <a class="right-next"
+       href="basics_of_numpy_arrays.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Basics of NumPy Arrays</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -460,8 +737,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-installation-via-pip">NumPy installation via PIP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-numpy-arrays">Creating NumPy arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-numpy">What is NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-numpy">Installing NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-numpy-arrays">Basics of NumPy Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays-from-python-objects">Creating Arrays from Python Objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays-from-scratch">Creating Arrays from Scratch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-standard-data-types">NumPy Standard Data Types</a></li>
 </ul>
   </nav></div>
 
